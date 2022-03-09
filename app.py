@@ -1,8 +1,7 @@
-import home
-import login
+import home, login, registro
 import os
 import time
-import registro
+
 
 
 while True:
