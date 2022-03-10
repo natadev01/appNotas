@@ -11,7 +11,7 @@ def manageNotes(user):
     print('2-Ver Notas---------------------------')
     print('3-Eliminar Notas----------------------')
     print('4-Eliminar Usuario--------------------')
-    print('5-Salir-------------------------------')
+    print('5-Cerrar Sesion-----------------------')
     entrada=input('-----------Escoja la opción-----------')
     
     if entrada == '1':
@@ -27,7 +27,7 @@ def manageNotes(user):
         deleteUser.deleteUser(user)
         home.home()
     elif entrada == '5':
-        return True
+        home.home()
     else:
         ('Opcion incorrecta, intente de nuevo!!')
 
