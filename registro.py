@@ -2,6 +2,7 @@ import getpass
 import os
 import sqlite3
 import time
+import manageNotes
 
 
 def registros():
@@ -27,7 +28,7 @@ def registros():
         conex.commit()
         print('usuario registrado')
         conex.close()
-        return True
+        return manageNotes.manageNotes(name)
             
 
 
