@@ -21,14 +21,15 @@ def login():
 
     cursor.execute('SELECT user  FROM registro')
     regisUser = cursor.fetchall()
-    cursor.execute('SELECT passw FROM registro')
+    cursor.execute('SELECT passw FROM registro where user=?',(name,))
     regisPass = cursor.fetchall()
+    regisPass = regisPass[0][0]
     conex.close()
     # print(regisUser)
     # print(regisPass)
     # time.sleep(10)
    
-    if (name,)  in regisUser and (passw,) in regisPass:
+    if (name,)  in regisUser and (passw) in regisPass:
         
         if  manageNotes.manageNotes(name) == True:
             return True
@@ -36,9 +37,9 @@ def login():
             return False
         
         
-    else:   
-        print('Usuario o contraseña incorrecta\nIntente de nuevo!!') 
-        time.sleep(5)
-        return False
+       
+    print('Usuario o contraseña incorrecta\nIntente de nuevo!!') 
+    time.sleep(5)
+    return False
 
     
