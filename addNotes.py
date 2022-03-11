@@ -1,6 +1,6 @@
 import sqlite3
 import os
-import manageNotes, home
+import manageNotes, app
 
 def addNotes(user):
     os.system ("cls")
@@ -36,10 +36,12 @@ def opciones(user):
     entrada=input('Elija la opcion deseada:')
        
     if entrada == '1':
-        home.home()
+        app.home()
             
     elif entrada == '2':
+
         manageNotes.manageNotes(user)
+        
     elif entrada == '3':
         addNotes(user)
     else:  

@@ -1,7 +1,7 @@
 
 import sqlite3
 import os
-import manageNotes, home
+import manageNotes, app
 
 
 def verNotes(user):
@@ -27,7 +27,7 @@ def verNotes(user):
     
     
     conex.close()
-    return(opciones(user))
+    opciones(user)
 
 def opciones(user):
         
@@ -40,9 +40,10 @@ def opciones(user):
        
     if entrada == '1':
         
-        home.home()
+        app.home()
             
     elif entrada == '2':
+        
         manageNotes.manageNotes(user) 
     
     else:  

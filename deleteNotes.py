@@ -1,6 +1,6 @@
 import sqlite3
 import os
-import home,manageNotes
+import app,manageNotes
 import time
 
 def deleteNotes(user):
@@ -47,7 +47,7 @@ def deleteNotes(user):
         return(opciones(user))
     except:
         if entrada =='a':
-            home.home()
+            app.home()
         elif entrada =='b':
             manageNotes.manageNotes(user)       
         os.system ("cls")
@@ -67,7 +67,7 @@ def opciones(user):
     entrada=input('Elija la opcion deseada:')
     os.system ("cls")   
     if entrada == '1':
-        home.home()
+        app.home()
         
             
     elif entrada == '2':
@@ -75,6 +75,7 @@ def opciones(user):
         manageNotes.manageNotes(user) 
 
     elif entrada == '3':
+        
         deleteNotes(user)
     else:  
         print('Opcion incorrecta, intente de nuevo')

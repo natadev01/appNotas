@@ -1,5 +1,5 @@
 import sqlite3
-import home, manageNotes
+import app, manageNotes
 import time
 
 def deleteUser(user):
@@ -24,6 +24,6 @@ def deleteUser(user):
     conex.close()
     print('Usuario eliminado satisfactoriamente')
     time.sleep(5)
-    home.home()
+    app.home()
 
 

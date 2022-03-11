@@ -1,6 +1,6 @@
-import addNotes, deleteNotes, verNotes, deleteUser,home
+import addNotes, deleteNotes, verNotes, deleteUser,app
 import os
-
+import time
 
 def manageNotes(user):
     
@@ -12,24 +12,28 @@ def manageNotes(user):
     print('3-Eliminar Notas----------------------')
     print('4-Eliminar Usuario--------------------')
     print('5-Cerrar Sesion-----------------------')
+
     entrada=input('-----------Escoja la opción-----------')
     
     if entrada == '1':
-        if addNotes.addNotes(user) == 'salir':
-            return True            
+        addNotes.addNotes(user) 
+                     
     elif entrada == '2':
-        if verNotes.verNotes(user) == 'salir': 
-            return True       
+        verNotes.verNotes(user)  
+               
     elif entrada == '3':
-        if deleteNotes.deleteNotes(user) == 'salir':
-            return True        
+        deleteNotes.deleteNotes(user)
+               
     elif entrada == '4':
         deleteUser.deleteUser(user)
-        home.home()
+        
     elif entrada == '5':
-        home.home()
+        app.home()
+    
     else:
-        ('Opcion incorrecta, intente de nuevo!!')
+        print('Opcion incorrecta, intente de nuevo!!')
+        time.sleep(3)
+        manageNotes(user)
 
 
         

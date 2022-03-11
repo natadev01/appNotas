@@ -16,19 +16,21 @@ def registros():
     name = input ('Introduzca user:')
     passw = getpass.getpass('Introduzca contraseña:')
     cursor.execute('SELECT user FROM registro')
-    registros = cursor.fetchall()
-    if (name,) in registros:
+    registros0 = cursor.fetchall()
+    if (name,) in registros0:
+
         print('El usuario ya existe, intente de nuevo')
-        time.sleep(5)
         conex.close()
-        return False
+        time.sleep(5)
+        
+        registros()
     else:
         os.system ("cls")
         cursor.execute("INSERT INTO registro (userID,user, passw) VALUES (null, ?, ?)", (name, passw))
         conex.commit()
         print('usuario registrado')
         conex.close()
-        return manageNotes.manageNotes(name)
+        manageNotes.manageNotes(name)
             
 
 

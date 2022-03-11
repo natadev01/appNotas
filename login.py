@@ -29,18 +29,17 @@ def login():
     # time.sleep(10)
 
         if passw == regisPass:
-            if  manageNotes.manageNotes(name) == True:
-                return True
-            else:
-                return False
+            manageNotes.manageNotes(name)
+
+                
         print('Contraseña incorrecta\nIntente de nuevo!!')
         time.sleep(5)
-        return False
-        
+        login()
         
     except:   
         print('Usuario incorrecta\nIntente de nuevo!!') 
         time.sleep(5)
-        return False
+        login()
+        
 
     
