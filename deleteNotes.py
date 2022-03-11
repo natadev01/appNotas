@@ -1,6 +1,7 @@
 import sqlite3
 import os
-import manageNotes, home
+import home,manageNotes
+import time
 
 def deleteNotes(user):
 
@@ -17,22 +18,42 @@ def deleteNotes(user):
     cursor.execute('SELECT note from notes where userID =?', (userID,))
     notes = cursor.fetchall()
     
+    if notes == []:
+        os.system ("cls")
+        print(f'Bienvenido/a {user} a tu app de notas')
+        print('No tiene notas para eliminar')
+        time.sleep(3)
+        manageNotes.manageNotes(user)
+
+
     notesNum = 0
     
     for i in notes:
         
         print(f'{notesNum}.-: {i[0]} ')
         notesNum = notesNum +1
-    
-    entrada = input('Seleccione la nota a eliminar: ')
+    print('---------------Opciones---------------')
+    print('a- Cerrar Sesion----------------------')
+    print('b- Menu-------------------------------')
+
+    entrada = input('Seleccione la nota a eliminar o la opción: ')
     try:
-        cursor.execute('DELETE  from notes WHERE note=?',(notes[0][int(entrada)],))
+       
+        cursor.execute('DELETE from notes WHERE note=?',(notes[int(entrada)][0],))
+        os.system ("cls")
         print('Nota eliminada satisfactoriamente')
         conex.commit()
         conex.close()
         return(opciones(user))
     except:
+        if entrada =='a':
+            home.home()
+        elif entrada =='b':
+            manageNotes.manageNotes(user)       
+        os.system ("cls")
+
         print('Opcion incorrecta\nIntente de nuevo')
+        time.sleep(4)
         deleteNotes(user)
 
 def opciones(user):
