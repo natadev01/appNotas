@@ -1,4 +1,4 @@
-import home, login, registro
+import  login, registro
 import os
 import time
 
@@ -25,7 +25,7 @@ def home():
         
     elif entrada == '3':
         
-        return
+        os.abort()
     
     else:
         os.system ("cls")

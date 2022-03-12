@@ -12,6 +12,7 @@ def manageNotes(user):
     print('3-Eliminar Notas----------------------')
     print('4-Eliminar Usuario--------------------')
     print('5-Cerrar Sesion-----------------------')
+    print('6-Salir-------------------------------')
 
     entrada=input('-----------Escoja la opción-----------')
     
@@ -29,7 +30,8 @@ def manageNotes(user):
         
     elif entrada == '5':
         app.home()
-    
+    elif entrada == '6':
+        os.abort()
     else:
         print('Opcion incorrecta, intente de nuevo!!')
         time.sleep(3)

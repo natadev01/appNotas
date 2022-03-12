@@ -34,18 +34,19 @@ def opciones(user):
     print('---------------Opciones---------------')
     print('1- Cerrar Sesion----------------------')
     print('2- Menu-------------------------------')
+    print('3- Salir------------------------------')
 
    
     entrada=input('Elija la opcion deseada:')
        
     if entrada == '1':
-        
         app.home()
             
     elif entrada == '2':
-        
         manageNotes.manageNotes(user) 
-    
+
+    elif entrada == '3':
+        os.abort()
     else:  
         print('Opcion incorrecta, intente de nuevo')
         opciones(user)

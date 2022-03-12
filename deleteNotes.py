@@ -60,8 +60,9 @@ def opciones(user):
         
     print('---------------Opciones---------------')
     print('1- Cerrar Sesion----------------------')
-    print('2- Menu-------------------------------')
-    print('3- Eliminar otra Nota-----------------')
+    print('2- Salir------------------------------')
+    print('3- Menu-------------------------------')
+    print('4- Eliminar otra Nota-----------------')
 
    
     entrada=input('Elija la opcion deseada:')
@@ -69,14 +70,15 @@ def opciones(user):
     if entrada == '1':
         app.home()
         
-            
     elif entrada == '2':
-
-        manageNotes.manageNotes(user) 
+        os.abort() 
 
     elif entrada == '3':
-        
+        manageNotes.manageNotes(user) 
+
+    elif entrada == '4':        
         deleteNotes(user)
+        
     else:  
         print('Opcion incorrecta, intente de nuevo')
         opciones(user)   
